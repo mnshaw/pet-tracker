@@ -7,13 +7,18 @@ import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  data: string = '';
 
   constructor(public navCtrl: NavController, private bluetoothSerial: BluetoothSerial) {
     this.connect();
   }
 
   connect() {
-    this.bluetoothSerial.connect("20:91:48:AA:AC:56", this.connectSuccess, this.connectFailure);
+    this.bluetoothSerial.connect("20:91:48:AA:AC:56").subscribe((data) => {
+      this.connectSuccess();
+    }, error => {
+      this.connectFailure();
+    });
   }
 
   connectSuccess() {
