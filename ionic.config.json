@@ -1,5 +1,7 @@
 {
   "name": "pet-tracker",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
